@@ -1,0 +1,8 @@
+=== RELATÓRIO DE DATA QUALITY ===
+Total de registros analisados: 1048575
+Total de erros detectados: 11336
+Percentual de Conformidade: 98.92%
+---------------------------------
+Valores faltantes (NaN): 11336
+Linhas duplicadas: 0
+Registros com valores negativos inválidos: 0

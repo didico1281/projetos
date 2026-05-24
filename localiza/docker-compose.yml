@@ -1,0 +1,9 @@
+services:
+  pipeline:
+    image: python:3.11-slim
+    volumes:
+      - /mnt/c/projetos/localiza:/app/project_files
+    environment:
+      - OUTPUT_DIR=/app/project_files
+    # Adicionamos o gdown na instalação
+    command: sh -c "pip install pandas gdown && python /app/project_files/pipeline.py"
