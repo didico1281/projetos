@@ -13,8 +13,8 @@ A solução foi projetada utilizando boas práticas de Engenharia de Dados, gara
 * **Conteinerização:** Docker (isolamento completo de dependências)
 * **Estrutura de Pastas (Padrão Medalhão Simplificado):**
     * `Camada Raw`: Onde reside o arquivo bruto original.
-    * `Camada Processed`: Onde são salvas as tabelas-resultado prontas para consumo de BI.
-    * `Camada Quarantine`: Onde são depositados os relatórios de erros e anomalias de qualidade.
+    * `Camada Spec`: Onde são salvas as tabelas-resultado prontas para consumo de BI.
+    * `Camada Quarantina`: Onde são depositados os relatórios de erros e anomalias de qualidade.
 
 ---
 
