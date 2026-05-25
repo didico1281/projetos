@@ -5,12 +5,12 @@ import gdown
 def run_pipeline():
     # 1. Configuração dos Caminhos e URL do Google Drive
     output_dir = os.getenv('OUTPUT_DIR', 'data')
-    quarantine_path = os.path.join(output_dir, 'quarantine/anomalies_report.txt')
-    output_t1_path = os.path.join(output_dir, 'processed/tabela_regiao_risco.csv')
-    output_t2_path = os.path.join(output_dir, 'processed/tabela_top3_vendas.csv')
+    quarantine_path = os.path.join(output_dir, 'quarentena/anomalias_report.txt')
+    output_t1_path = os.path.join(output_dir, 'spec/tabela_regiao_risco.csv')
+    output_t2_path = os.path.join(output_dir, 'spec/tabela_top3_vendas.csv')
     
     # Caminho do arquivo local (na sua pasta /mnt/c/projetos/localiza/)
-    local_file_path = os.path.join(output_dir, 'df_fraud_credit.csv')
+    local_file_path = os.path.join(output_dir, 'raw/df_fraud_credit.csv')
 
     # ID da pasta/arquivo fornecido no desafio
     FILE_ID = "1U64k1YkW2FEWOil_DyQSoOWz7NAWKr17" 

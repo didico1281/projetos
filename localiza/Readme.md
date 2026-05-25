@@ -1,39 +1,34 @@
-# Data Pipeline Challenge - Fraud & Credit Analysis
+# Pipeline de Dados - Análise de Fraude e Crédito
 
-Este projeto consiste na implementação de um pipeline de dados automatizado e conteinerizado para importação, limpeza, validação de qualidade (Data Quality) e transformação de dados transacionais financeiros.
+Este projeto consiste na implementação de um pipeline de dados automatizado e conteinerizado para a importação, limpeza, validação de qualidade (Data Quality) e transformação de dados transacionais financeiros. 
 
-O desafio foi desenhado seguindo as melhores práticas de Engenharia de Dados, garantindo resiliência, validação de métricas de conformidade e facilidade de execução em qualquer ambiente.
-
----
-
-## 🛠️ Stack Tecnológico e Arquitetura
-
-* **Linguagem de Processamento:** Python 3.11 com a biblioteca **Pandas** para manipulação eficiente de DataFrames.
-* **Conteinerização:** **Docker & Docker Compose** para isolamento de ambiente, garantindo que o pipeline rode sem a necessidade de instalar dependências locais na máquina hospedeira.
-* **Camadas de Dados (Medalhão Simplificado):**
-    * `Raw`: Dados brutos recebidos para processamento.
-    * `Processed`: Tabelas-resultado prontas para consumo analítico.
-    * `Quarantine`: Armazenamento de relatórios de métricas de qualidade e anomalias.
+A solução foi projetada utilizando boas práticas de Engenharia de Dados, garantindo o isolamento do ambiente com Docker, tratamento de exceções e a geração de métricas de observabilidade para os dados processados.
 
 ---
 
-## 📐 Estrutura do Projeto
+## 🛠️ Tecnologias e Arquitetura
 
-A estrutura de pastas no diretório de trabalho do projeto está organizada da seguinte forma:
+* **Linguagem Principal:** Python 3.11
+* **Processamento de Dados:** Pandas (manipulação eficiente de DataFrames em memória)
+* **Conteinerização:** Docker (isolamento completo de dependências)
+* **Estrutura de Pastas (Padrão Medalhão Simplificado):**
+    * `Camada Raw`: Onde reside o arquivo bruto original.
+    * `Camada Processed`: Onde são salvas as tabelas-resultado prontas para consumo de BI.
+    * `Camada Quarantine`: Onde são depositados os relatórios de erros e anomalias de qualidade.
+
+---
+
+## 📂 Estrutura do Projeto
+
+Após o processamento, a estrutura de diretórios na sua pasta de trabalho `/mnt/c/projetos/localiza/` ficará organizada da seguinte forma:
 
 ```text
 /mnt/c/projetos/localiza/
 ├── df_fraud_credit.csv         # Arquivo bruto de origem (Base de dados)
-├── pipeline.py                 # Script core com a lógica de DQ, Limpeza e ETL
-├── docker-compose.yml          # Manifesto do Docker para orquestração local
-├── processed/                  # Diretório com as tabelas-resultado (Gerado pelo pipeline)
+├── pipeline.py                 # Script com a lógica de Data Quality e ETL
+├── docker-compose.yml          # Manifesto de configuração do container Docker
+├── processed/                  # Diretório com as tabelas-resultado (Gerado automaticamente)
 │   ├── tabela_regiao_risco.csv
 │   └── tabela_top3_vendas.csv
-└── quarantine/                 # Diretório de observabilidade (Gerado pelo pipeline)
-    └── anomalies_report.txt    # Relatório com métricas de qualidade dos dados
-
-> 📌 **Nota sobre a Fonte de Dados (Google Drive):**
-> O link fornecido no escopo do desafio aponta para um diretório compartilhado (Folder). 
-> Para garantir a resiliência do pipeline contra restrições de API e permissões de download de pastas do Google Drive, 
-> o script foi desenhado com um mecanismo de *fallback* automático. 
-> Caso o download direto seja interrompido, o pipeline busca e processa o arquivo `df_fraud_credit.csv` presente na raiz do diretório local.
+└── quarantine/                 # Diretório de observabilidade (Gerado automaticamente)
+    └── anomalies_report.txt    # Relatório detalhado de qualidade dos dados
