@@ -27,8 +27,8 @@ Após o processamento, a estrutura de diretórios na sua pasta de trabalho `/mnt
 ├── df_fraud_credit.csv         # Arquivo bruto de origem (Base de dados)
 ├── pipeline.py                 # Script com a lógica de Data Quality e ETL
 ├── docker-compose.yml          # Manifesto de configuração do container Docker
-├── processed/                  # Diretório com as tabelas-resultado (Gerado automaticamente)
+├── spec/                  # Diretório com as tabelas-resultado (Gerado automaticamente)
 │   ├── tabela_regiao_risco.csv
 │   └── tabela_top3_vendas.csv
-└── quarantine/                 # Diretório de observabilidade (Gerado automaticamente)
+└── quarantina/                 # Diretório de observabilidade (Gerado automaticamente)
     └── anomalies_report.txt    # Relatório detalhado de qualidade dos dados
