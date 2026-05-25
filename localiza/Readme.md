@@ -11,24 +11,27 @@ A solução foi projetada utilizando boas práticas de Engenharia de Dados, gara
 * **Linguagem Principal:** Python 3.11
 * **Processamento de Dados:** Pandas (manipulação eficiente de DataFrames em memória)
 * **Conteinerização:** Docker (isolamento completo de dependências)
-* **Estrutura de Pastas (Padrão Medalhão Simplificado):**
-    * `Camada Raw`: Onde reside o arquivo bruto original.
-    * `Camada Spec`: Onde são salvas as tabelas-resultado prontas para consumo de BI.
-    * `Camada Quarantina`: Onde são depositados os relatórios de erros e anomalias de qualidade.
+* **Estrutura de Pastas:**
+    * `quarentena/`: Onde são depositados os relatórios de erros e anomalias de qualidade dos dados.
+    * `raw/`: Onde reside o arquivo bruto original enviado para o desafio.
+    * `spec/`: Onde ficam as especificações e as tabelas-resultado geradas prontas para consumo.
 
 ---
 
 ## 📂 Estrutura do Projeto
 
-Após o processamento, a estrutura de diretórios na sua pasta de trabalho `/mnt/c/projetos/localiza/` ficará organizada da seguinte forma:
+A estrutura de diretórios na sua pasta de trabalho `/mnt/c/projetos/localiza/` está organizada exatamente da seguinte forma:
 
 ```text
-/mnt/c/projetos/localiza/
-├── df_fraud_credit.csv         # Arquivo bruto de origem (Base de dados)
-├── pipeline.py                 # Script com a lógica de Data Quality e ETL
+localiza/
+├── quarentena/                 # Diretório de observabilidade
+│   └── anomalias_report.txt    # Relatório detalhado de qualidade dos dados
+├── raw/                        # Diretório com o arquivo bruto de origem
+│   └── df_fraud_credit.csv     # Base de dados original
+├── spec/                       # Diretório com as tabelas-resultado geradas
+│   ├── tabela_regiao_risco.csv # Resultado 1: Média de risco por região
+│   └── tabela_top3_vendas.csv  # Resultado 2: Top 3 endereços em vendas recentes
 ├── docker-compose.yml          # Manifesto de configuração do container Docker
-├── spec/                  # Diretório com as tabelas-resultado (Gerado automaticamente)
-│   ├── tabela_regiao_risco.csv
-│   └── tabela_top3_vendas.csv
-└── quarantina/                 # Diretório de observabilidade (Gerado automaticamente)
-    └── anomalies_report.txt    # Relatório detalhado de qualidade dos dados
+├── Dockerfile                  # Receita de construção da imagem Docker
+├── pipeline.py                 # Script principal com a lógica de Data Quality e ETL
+└── Readme.md                   # Documentação do projeto
